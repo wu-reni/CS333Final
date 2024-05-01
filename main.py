@@ -41,7 +41,7 @@ def main():
                                 editMatch(addChoice, recipeName, user)                           
                         case '2':
                             toEdit = input("Which recipe would you like to edit? ")
-                            if toEdit in user.recipes:
+                            if user.hasRecipe(toEdit):
                                 editChoice = 'a'
                                 while editChoice != '0':
                                     editChoice = editRecipeMenu()
@@ -50,7 +50,7 @@ def main():
                                 print("Recipe could not be found")
                         case '3':
                             toRemove = input("Which recipe would you like to remove? ")
-                            if toRemove in user.recipes:
+                            if user.hasRecipe(toRemove):
                                 user.removeRecipe(toRemove)
                             else: 
                                 print("Recipe could not be found")
@@ -82,7 +82,7 @@ def removeFromPantry(user):
         user.removeFromPantry(toRemove, quant)
 
 def editRecipeMenu():
-    return input("(1) to add ingredients \n(2) to add instructions \n(3) to edit or remove ingredients \n(4) to edit or remove instructions \n(0) to stop\n")
+    return input("(1) to add ingredients \n(2) to add instructions \n(3) to edit or remove ingredients \n(4) to remove instructions \n(0) to stop\n")
 
 def editMatch(choice, name, user):
     match choice: 
