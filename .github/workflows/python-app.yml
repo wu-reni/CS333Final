@@ -39,6 +39,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: deploy
-        uses: mxschmitt/action-tmate@v3.18
-        # run: 
-        #   python main.py
+        uses: mxschmitt/action-tmate @v3.18
+      - name: Run deployment script
+        run: |
+          sleep 10
+          python main.py
