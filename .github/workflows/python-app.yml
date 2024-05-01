@@ -38,4 +38,6 @@ jobs:
     environment: production
     steps:
       - name: deploy
-        run: python ../main.py
+        run: 
+          pwd
+          ls -la
