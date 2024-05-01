@@ -28,7 +28,7 @@ class User:
 
     def addRecipe(self, recipeName, ingredients = {}, instructions = []):
         newRecipe = Recipe(recipeName, ingredients, instructions)
-        self.recipes.append(newRecipe)
+        self.recipes.append(newRecipe) 
 
     def removeRecipe(self, recipeName):
         for recipe in self.recipes:
