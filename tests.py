@@ -37,12 +37,12 @@ class Tests(unittest.TestCase):
         self.assertEqual(self.pantry.getQuantity("apple"), 0)
 
     def testUserAddPantry(self):
-        self.user.addToPantry("banana", '3')
+        self.assertTrue(self.user.addToPantry("banana", '3'))
         self.assertEqual(self.user.pantry.items["banana"], 3)
 
     def testUserRemovePantry(self):
         self.user.addToPantry("banana", '3')
-        self.user.removeFromPantry("banana", '3')
+        self.assertTrue(self.user.removeFromPantry("banana", '3'))
         self.assertEqual(self.user.getItemQuantity("banana"), 0)
         
     def testUserPantryIsEmpty(self):

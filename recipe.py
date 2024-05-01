@@ -15,10 +15,11 @@ class Recipe:
     def removeIngredient(self, ingredient, quantity):
         if ingredient in self.ingredients:
             num = int(''.join(filter(str.isdigit, quantity)))
-            if int(self.ingredients[ingredient]) <= num:
+            original = int(self.ingredients[ingredient])
+            if original <= num:
                 del self.ingredients[ingredient]
             else:
-                self.ingredients[ingredient] = int(self.ingredients[ingredient]) - num
+                self.ingredients[ingredient] = original - num
             return True
         else:
             return False

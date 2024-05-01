@@ -9,9 +9,11 @@ class User:
 
     def addToPantry(self, item, quantity):
         self.pantry.addItem(item, quantity)
+        return True
 
     def removeFromPantry(self, item, quantity):
         self.pantry.removeItem(item, quantity)
+        return True
 
     def getItemQuantity(self, item):
         return self.pantry.getQuantity(item)
@@ -29,40 +31,47 @@ class User:
     def addRecipe(self, recipeName, ingredients = {}, instructions = []):
         newRecipe = Recipe(recipeName, ingredients, instructions)
         self.recipes.append(newRecipe) 
+        return True
 
     def hasRecipe(self, recipeName):
         for recipe in self.recipes: 
             if recipe.name == recipeName:
                 return recipe
-        return False
+        else: 
+            return False
 
     def removeRecipe(self, recipeName):
         recipe = self.hasRecipe(recipeName)
         if recipe:
             self.recipes.remove(recipe)
             return True
-        return False
+        else: 
+            return False
 
     def addIngredient(self, recipeName, ingredient, quantity):
         recipe = self.hasRecipe(recipeName)
         if recipe:
             return recipe.addIngredient(ingredient, quantity)
-        return False
+        else: 
+            return False
 
     def removeIngredient(self, recipeName, ingredient, quantity):
         recipe = self.hasRecipe(recipeName)
         if recipe:
                 return recipe.removeIngredient(ingredient, quantity)
-        return False
+        else: 
+            return False
 
     def addInstruction(self, recipeName, instruction):
         recipe = self.hasRecipe(recipeName)
         if recipe:
             return recipe.addInstruction(instruction)
-        return False
+        else: 
+            return False
 
     def removeInstruction(self, recipeName, instruction):
         recipe = self.hasRecipe(recipeName)
         if recipe:
             return recipe.removeInstruction(instruction)
-        return False
+        else: 
+            return False
