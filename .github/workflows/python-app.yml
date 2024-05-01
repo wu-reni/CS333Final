@@ -33,3 +33,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest tests.py
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: deploy
+      - run: python main.py
