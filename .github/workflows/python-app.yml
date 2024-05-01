@@ -16,8 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        path: '/'
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -39,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - uses: actions/checkout@v3
       - name: deploy
         run: 
-          pwd
-          ls -la
+          python main.py
