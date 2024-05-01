@@ -32,4 +32,4 @@ jobs:
       continue-on-error: true
     - name: Test with pytest
       run: |
-        pytest Tests.py
+        pytest tests.py
