@@ -38,4 +38,4 @@ jobs:
     environment: production
     steps:
       - name: deploy
-        run: python main.py
+        run: python ./main.py
