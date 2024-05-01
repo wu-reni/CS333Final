@@ -115,3 +115,7 @@ class Tests(unittest.TestCase):
     def testUserRemoveInstruction(self):
         self.assertTrue(self.user.removeInstruction(self.recipeName, "Cook spaghetti"))
         self.assertFalse(self.user.removeInstruction("Something random", "Cheese"))
+    
+    def testUserHasRecipe(self):
+        self.assertTrue(self.user.hasRecipe(self.recipeName))
+        self.assertFalse(self.user.hasRecipe("Something Random"))

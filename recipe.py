@@ -10,6 +10,7 @@ class Recipe:
             self.ingredients[ingredient] += num
         else:
             self.ingredients[ingredient] = num
+        return True
 
     def removeIngredient(self, ingredient, quantity):
         if ingredient in self.ingredients:

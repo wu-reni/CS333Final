@@ -18,7 +18,7 @@ def main():
             case '1':
                 pantryChoice = 'a'
                 while pantryChoice != '0':
-                    pantryChoice = input("(1) View Your Pantry \n(2) Add To Your Pantry \n(3) Remove From Your Pantry \n (0) To Return to Main Menu \n")
+                    pantryChoice = input("(1) View Your Pantry \n(2) Add To Your Pantry \n(3) Remove From Your Pantry \n(0) To Return to Main Menu \n")
                     match pantryChoice: 
                         case '1':
                             viewPantry(user)
@@ -30,22 +30,16 @@ def main():
                 recipeChoice = 'a'
                 while recipeChoice != '0':
                     print("Your Recipes: \n" + user.viewRecipes() + '\n')
-                    recipeChoice = input("(1) View a Recipe \n(2) Add New Recipe \n(3) Edit Existing Recipe \n(4) Remove a Recipe \n(0) To Return to Main Menu \n")
+                    recipeChoice = input("(1) Add New Recipe \n(2) Edit Existing Recipe \n(3) Remove a Recipe \n(0) To Return to Main Menu \n")
                     match recipeChoice: 
                         case '1':
-                            recipeName = input("Which recipe would you like to view? ")
-                            if recipeName in user.recipes:
-                                print(user.recipes.name)
-                            else: 
-                                print("Recipe is not available to view. \n")
-                        case '2':
                             recipeName = input("What would you like to name your recipe? ")
                             user.addRecipe(recipeName)
                             addChoice = 'a'
                             while addChoice != '0':
                                 addChoice = editRecipeMenu()
                                 editMatch(addChoice, recipeName, user)                           
-                        case '3':
+                        case '2':
                             toEdit = input("Which recipe would you like to edit? ")
                             if toEdit in user.recipes:
                                 editChoice = 'a'
@@ -54,7 +48,7 @@ def main():
                                     editMatch(editChoice, toEdit, user)
                             else:
                                 print("Recipe could not be found")
-                        case '4':
+                        case '3':
                             toRemove = input("Which recipe would you like to remove? ")
                             if toRemove in user.recipes:
                                 user.removeRecipe(toRemove)
@@ -63,14 +57,14 @@ def main():
             case '0':
                 print("Goodbye!")
 
-def viewPantry():
+def viewPantry(user):
     if user.pantryIsEmpty():
         print("You don't have any ingredients yet.\n")
     else:
         for item in user.pantry.items:
             print(str(user.pantry.items[item]) + " " + item + "(s)")
 
-def addToPantry():
+def addToPantry(user):
     toAdd = input("What would you like to add? ")
     curQuant = user.getItemQuantity(toAdd)
     if curQuant != 0:
@@ -78,7 +72,7 @@ def addToPantry():
     quant = input("How many " + toAdd + "(s) would you like to add? ")
     user.addToPantry(toAdd, quant)
 
-def removeFromPantry():
+def removeFromPantry(user):
     toRemove = input("What would you like to remove? ")
     curQuant = user.getItemQuantity(toRemove)
     if curQuant == 0:

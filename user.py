@@ -30,40 +30,39 @@ class User:
         newRecipe = Recipe(recipeName, ingredients, instructions)
         self.recipes.append(newRecipe) 
 
-    def removeRecipe(self, recipeName):
-        for recipe in self.recipes:
+    def hasRecipe(self, recipeName):
+        for recipe in self.recipes: 
             if recipe.name == recipeName:
-                self.recipes.remove(recipe)
-                return True
+                return recipe
+        return False
+
+    def removeRecipe(self, recipeName):
+        recipe = self.hasRecipe(recipeName)
+        if recipe:
+            self.recipes.remove(recipe)
+            return True
         return False
 
     def addIngredient(self, recipeName, ingredient, quantity):
-        for recipe in self.recipes:
-            if recipe.name == recipeName:
-                recipe.addIngredient(ingredient, quantity)
-                return True
+        recipe = self.hasRecipe(recipeName)
+        if recipe:
+            return recipe.addIngredient(ingredient, quantity)
         return False
 
     def removeIngredient(self, recipeName, ingredient, quantity):
-        for recipe in self.recipes: 
-            if recipe.name == recipeName:
+        recipe = self.hasRecipe(recipeName)
+        if recipe:
                 return recipe.removeIngredient(ingredient, quantity)
         return False
 
     def addInstruction(self, recipeName, instruction):
-        for recipe in self.recipes: 
-            if recipe.name == recipeName:
-                return recipe.addInstruction(instruction)
+        recipe = self.hasRecipe(recipeName)
+        if recipe:
+            return recipe.addInstruction(instruction)
         return False
 
     def removeInstruction(self, recipeName, instruction):
-        for recipe in self.recipes: 
-            if recipe.name == recipeName:
-                return recipe.removeInstruction(instruction)
+        recipe = self.hasRecipe(recipeName)
+        if recipe:
+            return recipe.removeInstruction(instruction)
         return False
-
-        
-
-
-            
-    
