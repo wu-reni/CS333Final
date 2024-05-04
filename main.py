@@ -48,8 +48,6 @@ def main():
                     toRemove = input("Which recipe would you like to remove? ")
                     if not user.removeRecipe(toRemove):
                         print("Recipe could not be found")
-        elif choice == '0':
-            print("Goodbye!")
 
 def viewPantry(user):
     if user.pantryIsEmpty():
@@ -60,8 +58,6 @@ def viewPantry(user):
 
 def addToPantry(user):
     toAdd = input("What would you like to add? ")
-    if user.getItemQuantity(toAdd) != 0:
-        print("You currently have " + str(user.getItemQuantity(toAdd)) + " " + toAdd + "(s)")
     quant = input("How many " + toAdd + "(s) would you like to add? ")
     user.addToPantry(toAdd, quant)
 
@@ -96,4 +92,4 @@ def editMatch(choice, name, user):
                 print("Could not remove instruction")    
 
 if __name__ == "__main__":
-    main()
+    unittest.main() 
