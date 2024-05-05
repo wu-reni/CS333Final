@@ -92,4 +92,4 @@ def editMatch(choice, name, user):
                 print("Could not remove instruction")    
 
 if __name__ == "__main__":
-    main() 
+    unittest.main() 
