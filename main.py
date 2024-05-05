@@ -10,9 +10,9 @@ import unittest
 def main():
     user = User()
     choice = 'a'
-    print("Welcome to your recipe manager!\n")  
+    print("welcome to your recipe manager!\n")  
     while choice != '0':
-        choice = input("(1) Access your pantry\n(2) Access your recipes \n(0) to quit\n")
+        choice = input("(1) Access your pantry \n(2) Access your recipes \n(0) to quit\n")
         if choice == '1':
             pantryChoice = 'a'
             while pantryChoice != '0':
