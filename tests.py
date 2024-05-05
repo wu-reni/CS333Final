@@ -46,7 +46,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(self.user.getItemQuantity("banana"), 0)
         
     def testUserPantryIsEmpty(self):
-        self.assertFalse(self.user.pantryIsEmpty())
+        self.assertTrue(self.user.pantryIsEmpty())
 
     def testRecipeAddIngredient(self):
         self.recipe.addIngredient("apple", '1 slices')
